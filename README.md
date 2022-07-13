@@ -23,24 +23,23 @@ sudo raspi-config
 ```
 
 ### 3. Auto mount usb drives
-> 1. Create a diretry to mount the USB Drive.
+#### 1. Create a diretry to mount the USB Drive.
 ```
 mkdir /mnt/usb
 ```
 
-> 2. First find the UUID of the USB drive to mount (Notedown UUID and Type)
+#### 2. First find the UUID of the USB drive to mount (Notedown UUID and Type)
 ```
 sudo blkid
 ```
 
-> 3. Create a backup of the file and edit it.
+#### 3. Create a backup of the file and edit it.
 ```
 sudo cp /etc/fstab /etc/fstab.back
 sudo nano /etc/fstab
 ```
-> 4. Use one of the below code to mount the drive. Don't forget to change UUID and the mount point.
-\n
-FAT `UUID=FC05-DF26 /mnt/usb0 vfat defaults,auto,users,rw,nofail,umask=000 0 0`
-NTFS `UUID=FC05-DF26 /mnt/usb0 ntfs defaults,auto,users,rw,nofail,umask=000 0 0`
-exFAT `UUID=FC05-DF26 /mnt/usb0 exfat defaults,auto,users,rw,nofail 0 0`
-EXT4	`UUID=FC05-DF26 /mnt/usb0 ext4 defaults,auto,users,rw,nofail 0 0`
+#### 4. Use one of the below code to mount the drive. Don't forget to change UUID and the mount point.
+> FAT `UUID=FC05-DF26 /mnt/usb0 vfat defaults,auto,users,rw,nofail,umask=000 0 0`
+> NTFS `UUID=FC05-DF26 /mnt/usb0 ntfs defaults,auto,users,rw,nofail,umask=000 0 0`
+> exFAT `UUID=FC05-DF26 /mnt/usb0 exfat defaults,auto,users,rw,nofail 0 0`
+> EXT4	`UUID=FC05-DF26 /mnt/usb0 ext4 defaults,auto,users,rw,nofail 0 0`
