@@ -1,7 +1,7 @@
 # Setup Raspberry Pi as media server with torrent download and smb server. (Setup done on Raspberry Pi 4B)
 I have created a simple step by step process used to install apps and packages on Raspberry Pi.
 
-  1. Update all the packages to the latest version
+  1. [Update all the packages to the latest version](https://github.com/chetanjain2099/Setup_Raspberry_Pi/edit/main/README.md#1-update-all-the-packages)
   2. Setup time zone
   3. Automatically mount USB Drive
   4. Install smb Server using Samba
@@ -83,3 +83,27 @@ sudo systemctl restart smbd
 > On Windows add a network drive as \\raspberryIPAddress\sharedDrive
 
 ## 5. Install Speedtest to test the internet speed
+#### - Install some packages for SpeedTest
+```
+sudo apt install apt-transport-https gnupg1 dirmngr
+```
+#### - Add the GPG key for Ookla’s Speedtest repository to the keychain
+```
+curl -L https://packagecloud.io/ookla/speedtest-cli/gpgkey | gpg --dearmor | sudo tee /usr/share/keyrings/speedtestcli-archive-keyring.gpg >/dev/null
+```
+#### - Add the Ookla repository to our sources list
+```
+echo "deb [signed-by=/usr/share/keyrings/speedtestcli-archive-keyring.gpg] https://packagecloud.io/ookla/speedtest-cli/debian/ $(lsb_release -cs) main" | sudo tee  /etc/apt/sources.list.d/speedtest.list
+```
+#### - Updating the package list
+``` 
+sudo apt update 
+```
+#### - Install Speedtest CLI
+```
+sudo apt install speedtest
+```
+#### - Run the speed test to check the internet speed
+```
+speedtest
+```
