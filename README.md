@@ -1,11 +1,11 @@
 # Setup Raspberry Pi as media server with torrent download and smb server. (Setup done on Raspberry Pi 4B)
 I have created a simple step by step process used to install apps and packages on Raspberry Pi.
 
-  [1. Update all the packages to the latest version](https://github.com/chetanjain2099/Setup_Raspberry_Pi/blob/main/README.md#1-update-all-the-packages)
-  [2. Setup time zone](https://github.com/chetanjain2099/Setup_Raspberry_Pi/blob/main/README.md#2-setup-date-and-time-correctly-set-time-zone) [original](https://www.instructables.com/How-to-Set-Time-and-Date-in-Raspberry-Pi/)
-  [3. Automatically mount USB Drive](https://github.com/chetanjain2099/Setup_Raspberry_Pi/blob/main/README.md#3-auto-mount-usb-drives) [original](https://raspberrytips.com/mount-usb-drive-raspberry-pi/#:~:text=quickly%20and%20easily.-,How%20to%20mount%20a%20USB%20drive%20on%20the%20Raspberry%20Pi,of%20options%20for%20both%20cases.)
-  [4. Install smb Server using Samba](https://github.com/chetanjain2099/Setup_Raspberry_Pi/blob/main/README.md#4-install--setup-samba-server) [original](https://pimylifeup.com/raspberry-pi-samba/)
-  [5. Install Speedtest to test the internet speed](https://github.com/chetanjain2099/Setup_Raspberry_Pi/blob/main/README.md#5-install-speedtest-to-test-the-internet-speed) [original](https://pimylifeup.com/raspberry-pi-internet-speed-monitor/)
+  1. [Update all the packages to the latest version](https://github.com/chetanjain2099/Setup_Raspberry_Pi/blob/main/README.md#1-update-all-the-packages)
+  2. [Setup time zone](https://github.com/chetanjain2099/Setup_Raspberry_Pi/blob/main/README.md#2-setup-date-and-time-correctly-set-time-zone) [original](https://www.instructables.com/How-to-Set-Time-and-Date-in-Raspberry-Pi/)
+  3. [Automatically mount USB Drive](https://github.com/chetanjain2099/Setup_Raspberry_Pi/blob/main/README.md#3-auto-mount-usb-drives) [original](https://raspberrytips.com/mount-usb-drive-raspberry-pi/#:~:text=quickly%20and%20easily.-,How%20to%20mount%20a%20USB%20drive%20on%20the%20Raspberry%20Pi,of%20options%20for%20both%20cases.)
+  4. [Install smb Server using Samba](https://github.com/chetanjain2099/Setup_Raspberry_Pi/blob/main/README.md#4-install--setup-samba-server) [original](https://pimylifeup.com/raspberry-pi-samba/)
+  5. [Install Speedtest to test the internet speed](https://github.com/chetanjain2099/Setup_Raspberry_Pi/blob/main/README.md#5-install-speedtest-to-test-the-internet-speed) [original](https://pimylifeup.com/raspberry-pi-internet-speed-monitor/)
   6. Over Clocking the CPU to boost the performance
   7. StressTest
   8. QBittorrent
