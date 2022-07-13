@@ -1,17 +1,17 @@
-## Setup Raspberry Pi as media server with torrent download and smb server. 
+## Setup Raspberry Pi as media server with torrent download and smb server. (Setup done on Raspberry Pi 4B)
 I have created a simple step by step process used to install apps and packages on Raspberry Pi.
-Setup Process used below is:
+
   1. Update all the packages to the latest version
   2. Setup time zone
   3. Automatically mount USB Drive
-  4. Install Samba Server to create smb server
-  5. Install Speedtest to test the speed
+  4. Install smb Server using Samba
+  5. Install Speedtest to test the internet speed
   6. Over Clocking the CPU to boost the performance
   7. StressTest
   8. QBittorrent
   9. Jellyfin
 
-### 1. First Update all the packages
+### 1. Update all the packages
 ```
 sudo apt update && sudo apt upgrade
 ```
@@ -23,23 +23,63 @@ sudo raspi-config
 ```
 
 ### 3. Auto mount usb drives
-#### 1. Create a diretry to mount the USB Drive.
+#### - Create a diretry to mount the USB Drive.
 ```
 mkdir /mnt/usb
 ```
 
-#### 2. First find the UUID of the USB drive to mount (Notedown UUID and Type)
+#### - Find the UUID of the USB drive to mount (Notedown UUID and Type of the drive you want to mount)
 ```
 sudo blkid
 ```
 
-#### 3. Create a backup of the file and edit it.
+#### - Create a backup of the file and edit it.
 ```
 sudo cp /etc/fstab /etc/fstab.back
 sudo nano /etc/fstab
 ```
-#### 4. Use one of the below code to mount the drive. Don't forget to change UUID and the mount point.
-> FAT `UUID=FC05-DF26 /mnt/usb0 vfat defaults,auto,users,rw,nofail,umask=000 0 0`
-> NTFS `UUID=FC05-DF26 /mnt/usb0 ntfs defaults,auto,users,rw,nofail,umask=000 0 0`
-> exFAT `UUID=FC05-DF26 /mnt/usb0 exfat defaults,auto,users,rw,nofail 0 0`
-> EXT4	`UUID=FC05-DF26 /mnt/usb0 ext4 defaults,auto,users,rw,nofail 0 0`
+#### - Use one of the below code to mount the drive. Don't forget to change UUID and the mount point. Close and Save the file
+  #####   FAT `UUID=FC05-DF26 /mnt/usb0 vfat defaults,auto,users,rw,nofail,umask=000 0 0`
+  #####   NTFS `UUID=FC05-DF26 /mnt/usb0 ntfs defaults,auto,users,rw,nofail,umask=000 0 0`
+  #####   exFAT `UUID=FC05-DF26 /mnt/usb0 exfat defaults,auto,users,rw,nofail 0 0`
+  #####   EXT4	`UUID=FC05-DF26 /mnt/usb0 ext4 defaults,auto,users,rw,nofail 0 0`
+#### Test the mounted directory by checking the files on the drive
+```
+cd /mnt/usb
+ls
+```
+
+### 4. Install & Setup Samba Server
+#### - Install Samba Server
+```
+sudo apt-get install samba samba-common-bin
+```
+#### - Edit samba config file to Add Path/drive you want to share
+```
+sudo nano /etc/samba/smb.conf
+```
+#### - Add below line at the end of the file then close and save the file.
+> `[sharedDrive]` defines the share itself (example: //raspberrypi/sharedDrive.
+> `path = /mnt/usb` path to mounted drive. 
+> `writeable=Yes` (it will allow the folder to be writable). 
+> `create mask=0777` and `directory mask=0777` (allows users to read, write, and execute).
+```
+[sharedDrive]
+path = /mnt/usb
+writeable=Yes
+create mask=0777
+directory mask=0777
+public=no
+```
+#### - Creat a samba user to access the server
+> Enter the desired password
+```
+sudo smbpasswd -a pi
+```
+#### - Restart the Samba Server to apply the config change
+```
+sudo systemctl restart smbd
+```
+> On Windows add a network drive as \\raspberryIPAddress\sharedDrive
+
+### 5. Install Speedtest to test the internet speed
