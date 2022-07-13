@@ -1,7 +1,7 @@
 # Setup Raspberry Pi as media server with torrent download and smb server. (Setup done on Raspberry Pi 4B)
 I have created a simple step by step process used to install apps and packages on Raspberry Pi.
 
-  1. [Update all the packages to the latest version](https://github.com/chetanjain2099/Setup_Raspberry_Pi/edit/main/README.md#1-update-all-the-packages)
+  1. [Update all the packages to the latest version](https://github.com/chetanjain2099/Setup_Raspberry_Pi/main/README.md#1-update-all-the-packages)
   2. Setup time zone
   3. Automatically mount USB Drive
   4. Install smb Server using Samba
