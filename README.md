@@ -1,4 +1,4 @@
-## Setup Raspberry Pi as media server with torrent download and smb server. (Setup done on Raspberry Pi 4B)
+# Setup Raspberry Pi as media server with torrent download and smb server. (Setup done on Raspberry Pi 4B)
 I have created a simple step by step process used to install apps and packages on Raspberry Pi.
 
   1. Update all the packages to the latest version
@@ -11,18 +11,18 @@ I have created a simple step by step process used to install apps and packages o
   8. QBittorrent
   9. Jellyfin
 
-### 1. Update all the packages
+## 1. Update all the packages
 ```
 sudo apt update && sudo apt upgrade
 ```
 
-### 2. Setup date and time correctly (Set time zone).
+## 2. Setup date and time correctly (Set time zone).
 > Run the command -> Select Localization option from the menu -> Select Timezone -> Select Area -> Select City/Region
 ```
 sudo raspi-config
 ```
 
-### 3. Auto mount usb drives
+## 3. Auto mount usb drives
 #### - Create a diretry to mount the USB Drive.
 ```
 mkdir /mnt/usb
@@ -49,7 +49,7 @@ cd /mnt/usb
 ls
 ```
 
-### 4. Install & Setup Samba Server
+## 4. Install & Setup Samba Server
 #### - Install Samba Server
 ```
 sudo apt-get install samba samba-common-bin
@@ -82,4 +82,4 @@ sudo systemctl restart smbd
 ```
 > On Windows add a network drive as \\raspberryIPAddress\sharedDrive
 
-### 5. Install Speedtest to test the internet speed
+## 5. Install Speedtest to test the internet speed
