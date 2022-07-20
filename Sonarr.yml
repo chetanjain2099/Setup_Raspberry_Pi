@@ -1,0 +1,18 @@
+---
+version: "2.1"
+services:
+  sonarr:
+    image: ghcr.io/linuxserver/sonarr
+    container_name: sonarr
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Japan/Osaka
+    volumes:
+      - /mnt/usb/Appdata/Sonarr/config:/config
+      - /mnt/usb/Downloads:/downloads
+      - /mnt/usb/downloads/tv:/tv
+      
+    ports:
+      - 8989:8989
+    restart: unless-stopped
